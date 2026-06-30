@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          screens: { xs: '475px' }
+        }
+      }
+    }
+  </script>
+  <title>Interests & YouTube - Saurav Niroula</title>
+  <style>
+    /* ═══ Scroll Reveal ═══ */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-48px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(48px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+    .delay-500 { transition-delay: 0.5s; }
+
+    /* ═══ Animated Gradient Text ═══ */
+    @keyframes gradient-shift { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+    .animated-gradient {
+      background: linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7,#6366f1);
+      background-size:300% 300%;
+      animation:gradient-shift 4s ease infinite;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    /* ═══ Shimmer Sweep ═══ */
+    .shimmer { position:relative; overflow:hidden; }
+    .shimmer::after {
+      content:'';
+      position:absolute;
+      top:0; left:-100%;
+      width:60%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+      transform:skewX(-15deg);
+      transition:left 0.8s ease;
+    }
+    .shimmer:hover::after { left:140%; }
+
+    /* Slow spin for avatar glow ring */
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .animate-spin-slow { animation: spin-slow 4s linear infinite; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+  </style>
+</head>
+<body class="font-nunito bg-gradient-to-br from-slate-50 via-indigo-50/40 to-white dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col relative overflow-x-hidden transition-colors duration-300">
+
+  <!-- Soft background shapes -->
+  <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-200/20 dark:bg-indigo-500/10 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
+  <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-purple-200/15 dark:bg-purple-500/10 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse" style="animation-duration: 10s;"></div>
+
+  <!-- navbar -->
+  <nav class="w-full fixed top-0 z-50 transition-all duration-300" id="navbar">
+    <div class="absolute inset-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50"></div>
+    
+
+
+    <div class="relative container mx-auto py-1.5 sm:py-3 px-2 sm:px-4 md:px-10 flex items-center justify-between z-50 gap-1.5">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-1 sm:gap-2 group flex-shrink-0 min-w-0">
+        <div class="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+          <span class="text-white font-black text-[9px] sm:text-sm">SN</span>
+        </div>
+        <span class="text-xs sm:text-base font-black text-slate-900 dark:text-white tracking-tight truncate">Saurav <span class="text-indigo-600 dark:text-indigo-400">Niroula.</span></span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="flex items-center gap-1.5 sm:gap-2 text-sm font-black flex-shrink-0">
+        <li>
+          <a href="index.html" class="inline-flex items-center justify-center px-2.5 sm:px-4 sm:w-28 md:w-32 h-7 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-black text-[10px] sm:text-sm shadow-md shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5 transition-all active:scale-95 touch-manipulation">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="interest.html" class="inline-flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 h-7 sm:h-10 rounded-lg sm:rounded-xl bg-[#ef4444] hover:bg-[#dc2626] text-white font-black text-[10px] sm:text-sm shadow-md shadow-red-500/30 hover:shadow-red-500/50 hover:-translate-y-0.5 transition-all active:scale-95 touch-manipulation">
+            <i class="fa-brands fa-youtube text-xs sm:text-lg"></i>
+            <span class="hidden xs:inline">Youtuber</span>
+            <span class="inline xs:hidden">YT</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- main wrapper -->
+  <main class="flex-grow flex justify-center pt-28 pb-16 px-4 md:px-10 z-10 relative">
+    <div class="max-w-2xl w-full flex flex-col gap-14 mx-auto">
+    
+      <!-- Top Section -->
+        <!-- YouTube Channel Card (Premium & Enlarged) -->
+        <div class="reveal delay-100 relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-red-500/40 cursor-pointer group hover:-translate-y-2 hover:shadow-red-500/60 transition-all duration-500" onclick="openYouTube()">
+          <!-- Animated Red gradient background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-red-500 via-red-600 to-red-900 bg-[length:200%_200%] animate-bg-pan"></div>
+          <!-- Animated Sparkle blobs -->
+          <div class="absolute top-0 right-10 w-32 h-32 bg-yellow-400/30 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
+          <div class="absolute -bottom-10 left-1/4 w-48 h-48 bg-orange-500/40 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+
+          <!-- Content -->
+          <div class="relative z-10 p-6 sm:p-10 flex items-end justify-between gap-2 sm:gap-4 h-full">
+            <div class="flex flex-col gap-3 sm:gap-5 z-20 max-w-[65%] sm:max-w-none">
+              <!-- YouTube logo + label -->
+              <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                  <i class="fa-brands fa-youtube text-red-600 text-lg sm:text-2xl"></i>
+                </div>
+                <span class="text-white/95 font-black text-xs sm:text-lg tracking-widest uppercase">YouTube</span>
+              </div>
+
+              <!-- Channel name + checkmark -->
+              <div class="mt-1 sm:mt-2">
+                <h3 class="text-white font-black text-2xl sm:text-5xl leading-tight flex items-center gap-1.5 sm:gap-2 drop-shadow-lg">
+                  ZEROTH YT 
+                  <svg class="w-6 h-6 sm:w-10 sm:h-10 drop-shadow-md flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.5 12.5C22.5 11.8333 22 11.1667 21.3333 11L22.5 9.16667C22.8333 8.5 22.6667 7.66667 22 7.33333L20 6.33333L19.5 4C19.3333 3.33333 18.6667 2.83333 18 2.83333H15.6667L14 1.16667C13.5 0.666667 12.6667 0.666667 12 1.16667L10.3333 2.83333H8C7.33333 2.83333 6.66667 3.33333 6.5 4L6 6.33333L4 7.33333C3.33333 7.66667 3.16667 8.5 3.5 9.16667L4.66667 11C4 11.1667 3.5 11.8333 3.5 12.5C3.5 13.1667 4 13.8333 4.66667 14L3.5 15.8333C3.16667 16.5 3.33333 17.3333 4 17.6667L6 18.6667L6.5 21C6.6667 21.6667 7.33333 22.1667 8 22.1667H10.3333L12 23.8333C12.5 24.3333 13.3333 24.3333 14 23.8333L15.6667 22.1667H18C18.6667 22.1667 19.3333 21.6667 19.5 21L20 18.6667L22 17.6667C22.6667 17.3333 22.8333 16.5 22.5 15.8333L21.3333 14C22 13.8333 22.5 13.1667 22.5 12.5Z" fill="#1d9bf0"/>
+                    <path d="M10.8333 16.5L7.5 13.1667L8.66667 12L10.8333 14.1667L15.8333 9.16667L17 10.3333L10.8333 16.5Z" fill="white"/>
+                  </svg>
+                </h3>
+                <p class="text-white/90 font-bold text-sm sm:text-xl mt-0.5 sm:mt-1 tracking-wide">4.27M+ Subscribers</p>
+              </div>
+
+              <!-- Subscribe button -->
+              <button
+                id="yt-subscribe-btn"
+                onclick="event.stopPropagation(); handleSubscribe()"
+                class="mt-1 sm:mt-2 inline-flex items-center justify-center gap-2 sm:gap-3 bg-white hover:bg-gray-100 text-slate-900 font-black text-sm sm:text-lg px-5 py-3 sm:px-10 sm:py-4 rounded-full shadow-[0_10px_30px_rgba(255,255,255,0.3)] transition-all duration-300 active:scale-95 hover:scale-105 animate-subscribe-pulse w-fit group/btn"
+              >
+                <i class="fa-brands fa-youtube text-red-600 text-lg sm:text-xl group-hover/btn:scale-110 transition-transform"></i>
+                <span id="yt-btn-text">Subscribe</span>
+              </button>
+            </div>
+
+            <!-- Gamer art -->
+            <div class="absolute bottom-0 right-0 pointer-events-none z-10 animate-float-slow">
+              <img src="./img/gamer.png" alt="Zeroth YT" class="w-36 h-56 sm:w-72 sm:h-96 object-contain object-bottom drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-700 origin-bottom -right-2 sm:right-6 relative -mb-1 sm:-mb-2" />
+            </div>
+          </div>
+        </div>
+
+        <style>
+          @keyframes subscribe-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+          }
+          .animate-subscribe-pulse { animation: subscribe-pulse 2s ease-in-out infinite; }
+          
+          @keyframes bg-pan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-bg-pan { animation: bg-pan 10s ease infinite; }
+          
+          @keyframes float-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+          .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
+        </style>
+
+        <script>
+          function openYouTube() {
+            // Try YouTube app deep link first, fallback to web
+            window.location.href = 'https://www.youtube.com/@zerothyt10?sub_confirmation=1';
+          }
+          function handleSubscribe() {
+            const btn = document.getElementById('yt-subscribe-btn');
+            const txt = document.getElementById('yt-btn-text');
+            // Visual feedback
+            btn.style.background = '#ef4444';
+            btn.style.color = 'white';
+            txt.textContent = 'Subscribed! ✓';
+            btn.querySelector('i').style.color = 'white';
+            // Open YouTube after short delay
+            setTimeout(() => {
+              window.open('https://www.youtube.com/@zerothyt10?sub_confirmation=1', '_blank');
+            }, 600);
+          }
+        </script>
+
+      <!-- Bottom Section (Social Hub, Shop, etc.) -->
+      <div class="w-full flex flex-col gap-12">
+        <!-- Social Hub -->
+        <div class="reveal-right flex flex-col gap-2">
+          <div class="flex justify-between items-center mb-1">
+            <div class="flex items-center gap-3">
+               <div class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shadow-sm"><i class="fa-solid fa-layer-group text-sm"></i></div>
+               <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Social Hub</h2>
+            </div>
+            <span class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-bold px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-900/50">4 Active Platforms</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Connect with my digital universe across all platforms.</p>
+          
+          <div class="bg-white dark:bg-slate-900/40 dark:backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-slate-200/20 dark:shadow-none border border-slate-100 dark:border-slate-800/80 mt-4">
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+               
+               <!-- TikTok -->
+               <a href="https://www.tiktok.com/@zeroth_yt1" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-[#24272c] to-[#0c0d0f] transition-all duration-300 rounded-[2rem] p-6 flex flex-col justify-center gap-1 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:-translate-y-1.5 border border-white/10 touch-manipulation">
+                 <!-- Glass highlight -->
+                 <div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-50 pointer-events-none"></div>
+                 <!-- Dots pattern -->
+                 <svg class="absolute top-5 right-5 w-8 h-8 text-white/10" viewBox="0 0 24 24" fill="currentColor">
+                   <circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="14" cy="2" r="1.5"/><circle cx="20" cy="2" r="1.5"/>
+                   <circle cx="2" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="14" cy="8" r="1.5"/><circle cx="20" cy="8" r="1.5"/>
+                   <circle cx="2" cy="14" r="1.5"/><circle cx="8" cy="14" r="1.5"/><circle cx="14" cy="14" r="1.5"/><circle cx="20" cy="14" r="1.5"/>
+                 </svg>
+                 <!-- Arrow bottom right -->
+                 <div class="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                   <i class="fa-solid fa-chevron-right text-white/90 text-xs"></i>
+                 </div>
+                 
+                 <!-- Content -->
+                 <div class="relative z-10 flex items-center gap-4">
+                   <div class="w-16 h-16 bg-white rounded-[1.25rem] flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                     <i class="fa-brands fa-tiktok text-[32px] text-black"></i>
+                   </div>
+                   <div class="flex flex-col pt-1">
+                     <h3 class="text-white font-black text-xl sm:text-2xl leading-tight">Follow<br/>Now</h3>
+                     <p class="text-white/50 text-[10px] font-bold mt-1 uppercase tracking-widest leading-tight">TIKTOK<br/>@ZEROTH_YT1</p>
+                   </div>
+                 </div>
+               </a>
+
+               <!-- Instagram -->
+               <a href="https://www.instagram.com/zeroth_yt1/" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-[#ff7942] via-[#e23075] to-[#a22383] transition-all duration-300 rounded-[2rem] p-6 flex flex-col justify-center gap-1 shadow-[0_10px_30px_rgba(226,48,117,0.3)] hover:shadow-[0_15px_40px_rgba(226,48,117,0.5)] hover:-translate-y-1.5 border border-white/20 touch-manipulation">
+                 <!-- Glass highlight -->
+                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-50 pointer-events-none"></div>
+                 <!-- Dots pattern -->
+                 <svg class="absolute top-5 right-5 w-8 h-8 text-white/20" viewBox="0 0 24 24" fill="currentColor">
+                   <circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="14" cy="2" r="1.5"/><circle cx="20" cy="2" r="1.5"/>
+                   <circle cx="2" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="14" cy="8" r="1.5"/><circle cx="20" cy="8" r="1.5"/>
+                   <circle cx="2" cy="14" r="1.5"/><circle cx="8" cy="14" r="1.5"/><circle cx="14" cy="14" r="1.5"/><circle cx="20" cy="14" r="1.5"/>
+                 </svg>
+                 <!-- Arrow bottom right -->
+                 <div class="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                   <i class="fa-solid fa-chevron-right text-white/90 text-xs"></i>
+                 </div>
+                 
+                 <!-- Content -->
+                 <div class="relative z-10 flex items-center gap-4">
+                   <div class="w-16 h-16 bg-white rounded-[1.25rem] flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                     <i class="fa-brands fa-instagram text-[32px] text-[#d62976]"></i>
+                   </div>
+                   <div class="flex flex-col pt-1">
+                     <h3 class="text-white font-black text-xl sm:text-2xl leading-tight">Follow<br/>INSTAGRAM</h3>
+                     <p class="text-white/70 text-[10px] font-bold mt-1 uppercase tracking-widest leading-tight">INSTAGRAM<br/>@ZEROTH_YT1</p>
+                   </div>
+                 </div>
+               </a>
+
+               <!-- YouTube -->
+               <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-[#ff2727] to-[#d80c0c] transition-all duration-300 rounded-[2rem] p-6 flex flex-col justify-center gap-1 shadow-[0_10px_30px_rgba(255,39,39,0.3)] hover:shadow-[0_15px_40px_rgba(255,39,39,0.5)] hover:-translate-y-1.5 border border-white/20 touch-manipulation">
+                 <!-- Glass highlight -->
+                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-50 pointer-events-none"></div>
+                 <!-- Dots pattern -->
+                 <svg class="absolute top-5 right-5 w-8 h-8 text-white/20" viewBox="0 0 24 24" fill="currentColor">
+                   <circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="14" cy="2" r="1.5"/><circle cx="20" cy="2" r="1.5"/>
+                   <circle cx="2" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="14" cy="8" r="1.5"/><circle cx="20" cy="8" r="1.5"/>
+                   <circle cx="2" cy="14" r="1.5"/><circle cx="8" cy="14" r="1.5"/><circle cx="14" cy="14" r="1.5"/><circle cx="20" cy="14" r="1.5"/>
+                 </svg>
+                 <!-- Arrow bottom right -->
+                 <div class="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                   <i class="fa-solid fa-chevron-right text-white/90 text-xs"></i>
+                 </div>
+                 
+                 <!-- Content -->
+                 <div class="relative z-10 flex items-center gap-4">
+                   <div class="w-16 h-16 bg-white rounded-[1.25rem] flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                     <i class="fa-brands fa-youtube text-[32px] text-[#FF0000]"></i>
+                   </div>
+                   <div class="flex flex-col pt-1">
+                     <h3 class="text-white font-black text-xl sm:text-2xl leading-tight">Subscribe<br/>Now</h3>
+                     <p class="text-white/70 text-[10px] font-bold mt-1 uppercase tracking-widest leading-tight">YOUTUBE<br/>CHANNEL</p>
+                   </div>
+                 </div>
+               </a>
+
+               <!-- Discord -->
+               <a href="https://discord.gg/4exbvccwkK" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-[#4f6cf7] to-[#4056ea] transition-all duration-300 rounded-[2rem] p-6 flex flex-col justify-center gap-1 shadow-[0_10px_30px_rgba(79,108,247,0.3)] hover:shadow-[0_15px_40px_rgba(79,108,247,0.5)] hover:-translate-y-1.5 border border-white/20 touch-manipulation">
+                 <!-- Glass highlight -->
+                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-50 pointer-events-none"></div>
+                 <!-- Dots pattern -->
+                 <svg class="absolute top-5 right-5 w-8 h-8 text-white/20" viewBox="0 0 24 24" fill="currentColor">
+                   <circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="14" cy="2" r="1.5"/><circle cx="20" cy="2" r="1.5"/>
+                   <circle cx="2" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="14" cy="8" r="1.5"/><circle cx="20" cy="8" r="1.5"/>
+                   <circle cx="2" cy="14" r="1.5"/><circle cx="8" cy="14" r="1.5"/><circle cx="14" cy="14" r="1.5"/><circle cx="20" cy="14" r="1.5"/>
+                 </svg>
+                 <!-- Arrow bottom right -->
+                 <div class="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                   <i class="fa-solid fa-chevron-right text-white/90 text-xs"></i>
+                 </div>
+                 
+                 <!-- Content -->
+                 <div class="relative z-10 flex items-center gap-4">
+                   <div class="w-16 h-16 bg-white rounded-[1.25rem] flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                     <i class="fa-brands fa-discord text-[32px] text-[#5865F2]"></i>
+                   </div>
+                   <div class="flex flex-col pt-1">
+                     <h3 class="text-white font-black text-xl sm:text-2xl leading-tight">Join<br/>DISCORD</h3>
+                     <p class="text-white/70 text-[10px] font-bold mt-1 uppercase tracking-widest leading-tight">DISCORD<br/>COMMUNITY</p>
+                   </div>
+                 </div>
+               </a>
+             </div>
+          </div>
+        </div>
+
+        <!-- Official Shop -->
+        <div class="reveal-right delay-200 bg-white dark:bg-slate-900/40 dark:backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-slate-200/20 dark:shadow-none border border-slate-100 dark:border-slate-800/80 flex flex-col mt-4">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shadow-sm"><i class="fa-solid fa-cart-shopping text-sm"></i></div>
+            <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Official Shop</h2>
+          </div>
+          <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-6">Explore my optimization services and creative guides.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800/80 flex flex-col overflow-hidden group hover:shadow-2xl hover:border-slate-200 dark:hover:border-slate-700/80 hover:-translate-y-1.5 hover:shadow-glow-indigo transition-all duration-500 pb-2 animate-shine">
+              <div class="relative h-48 bg-white overflow-hidden rounded-2xl m-2">
+                 <img src="./img/gaming-pc.png" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500" alt="PC Optimization">
+                 <span class="absolute top-3 left-3 bg-indigo-500 text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-lg shadow-md tracking-wider">ULTIMATE</span>
+              </div>
+              <div class="p-6 flex flex-col flex-grow pt-4">
+                <h3 class="font-black text-xl text-slate-900 dark:text-white uppercase group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">PC OPTIMIZATION MAX</h3>
+                <p class="text-sm font-medium text-slate-500 mt-1">Get the maximum performance and lowest latency for your gaming setup.</p>
+                <div class="flex items-center gap-3 mt-3">
+                  <span class="text-3xl font-black text-rose-600 dark:text-rose-400">₹999</span>
+                  <span class="text-base font-bold text-slate-400 dark:text-slate-500 line-through">₹1999</span>
+                </div>
+                
+                <ul class="mt-6 flex flex-col gap-4 flex-grow">
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">FPS Boost for Free Fire</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Maximize frame rates and smooth gameplay</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Input Lag Fix</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Zero delay for lightning-fast reactions</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Windows Optimization</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Debloat and tune OS for pure gaming</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">BlueStacks & MSI Setup</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Perfect emulator configuration & settings</span>
+                    </div>
+                  </li>
+                </ul>
+                
+                <div class="mt-8 flex flex-col gap-2">
+                  <a href="https://discord.gg/4exbvccwkK" target="_blank" class="flex items-center justify-center w-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-black text-sm uppercase py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-rose-500/30 hover:shadow-rose-500/50 hover:-translate-y-0.5 touch-manipulation min-h-[44px] animate-shine">
+                    <i class="fa-solid fa-bolt mr-2"></i> PURCHASE
+                  </a>
+                  <p class="text-center text-slate-400 text-xs font-medium mt-1">
+                    <i class="fa-solid fa-lock text-[10px] mr-1 text-slate-300"></i> Secure payment &bull; Instant access
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Card 2: Premium CapCut -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800/80 flex flex-col overflow-hidden group hover:shadow-2xl hover:border-slate-200 dark:hover:border-slate-700/80 hover:-translate-y-1.5 hover:shadow-glow-indigo transition-all duration-500 pb-2 animate-shine">
+              <div class="relative h-48 bg-slate-900 dark:bg-slate-950 overflow-hidden rounded-2xl m-2">
+                 <img src="./img/capcut-hero.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Premium CapCut">
+              </div>
+              <div class="p-6 flex flex-col flex-grow pt-4">
+                <h3 class="font-black text-xl text-slate-900 dark:text-white uppercase group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">BUY PREMIUM CAPCUT</h3>
+                <p class="text-sm font-medium text-slate-500 mt-1">Master CapCut with premium features and create stunning videos effortlessly.</p>
+                <div class="flex items-center gap-3 mt-3">
+                  <span class="text-3xl font-black text-rose-600 dark:text-rose-400">₹599</span>
+                  <span class="text-base font-bold text-slate-400 dark:text-slate-500 line-through">₹999</span>
+                </div>
+                
+                <ul class="mt-6 flex flex-col gap-4 flex-grow">
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-violet-600 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Premium Features Guide</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Explore all Pro tools & how to use them</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-violet-600 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Advanced Editing Techniques</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Transitions, keyframes, masks & more</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-violet-600 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Trendy Templates & Effects</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">Use viral templates & premium effects</span>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-violet-600 text-lg mt-0.5 flex-shrink-0"></i>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Export Settings for Best Quality</span>
+                      <span class="text-xs font-medium text-slate-500 mt-0.5">1080p, 4K export & no watermark tips</span>
+                    </div>
+                  </li>
+                </ul>
+                
+                <div class="mt-8 flex flex-col gap-2">
+                  <a href="https://discord.gg/4exbvccwkK" target="_blank" class="flex items-center justify-center w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-black text-sm uppercase py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:-translate-y-0.5 touch-manipulation min-h-[44px] animate-shine">
+                    <i class="fa-solid fa-crown mr-2"></i> BUY PREMIUM CAPCUT
+                  </a>
+                  <p class="text-center text-slate-400 text-xs font-medium mt-1">
+                    <i class="fa-solid fa-lock text-[10px] mr-1 text-slate-300"></i> Secure payment &bull; Instant access
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200/60 dark:border-slate-800/60 mt-auto z-10">
+    <div class="container mx-auto px-4 md:px-10 py-6 flex flex-col items-center gap-5">
+
+      <!-- Brand + Nav Links -->
+      <div class="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-2 group flex-shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+            <span class="text-white font-black text-[10px]">SN</span>
+          </div>
+          <span class="text-sm font-black text-slate-800 dark:text-white tracking-tight">Saurav <span class="text-indigo-600 dark:text-indigo-400">Niroula.</span></span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="flex items-center gap-2 text-xs font-black">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all">Home</a>
+          <a href="index.html#education" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all flex items-center gap-1">
+            <i class="fa-solid fa-graduation-cap text-indigo-500 text-[10px]"></i> Education
+          </a>
+          <a href="interest.html" class="px-3 py-1.5 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-1 border border-red-200 dark:border-red-800/50">
+            <i class="fa-brands fa-youtube text-[10px]"></i> Youtuber
+          </a>
+        </div>
+      </div>
+
+      <!-- Social Icons - Big White Cards -->
+      <div class="flex items-center gap-3">
+        <a href="https://discord.gg/4exbvccwkK" target="_blank" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-[#5865F2] hover:-translate-y-1 hover:shadow-[#5865F2]/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-discord text-xl"></i>
+        </a>
+        <a href="#" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-pink-500 hover:-translate-y-1 hover:shadow-pink-500/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-instagram text-xl"></i>
+        </a>
+        <a href="#" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-red-500 hover:-translate-y-1 hover:shadow-red-500/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-youtube text-xl"></i>
+        </a>
+        <a href="#" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-blue-600 hover:-translate-y-1 hover:shadow-blue-600/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-linkedin text-xl"></i>
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-[11px] text-slate-400 font-semibold text-center">
+        © 2026 Saurav Niroula &middot; Designed &amp; Built with <span class="text-red-500">❤️</span> in Nepal 🇳🇵
+      </p>
+
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script>
+    // Scroll Reveal
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+  <script src="./autotyping.js"></script>
+  <script>
+    // Youtuber page typing animation
+    const ytTyping = new AutoTyping('#yt-text', [
+      '5 Million On Youtube Soon',
+    ], {
+      typeSpeed: 80,
+      deleteSpeed: 50,
+      waitBeforeDelete: 99999999,
+      waitBetweenWords: 400,
+    });
+    ytTyping.start();
+
+
+  </script>
+</body>
+</html>

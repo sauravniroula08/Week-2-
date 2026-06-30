@@ -1,329 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Saurav Niroula Portfolio</title>
-  </head>
-  <body class="font-nunito">
-   
-    <!-- intro section -->
-    <div
-      class="h-1/2 lg:h-screen bg-gradient-to-t from-indigo-200 dark:from-slate-800 dark:to-slate-900 relative overflow-hidden"
-    >
-      <!-- navbar -->
-      <nav class="w-full fixed top-0 bg-white z-10 dark:bg-slate-900">
-        <div class="container mx-auto py-5 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-2xl font-bold text-indigo-900 dark:text-white"
-              >Saurav Niroula.</span
-            >
-          </div>
-          <ul
-            class="hidden md:flex space-x-10 text-gray-600 dark:text-gray-100 font-bold text-sm uppercase"
-          >
-            <li class="hover:text-gray-500">
-              <a href="#">homepage</a>
-            </li>
-            <li class="hover:text-gray-500">
-              <a href="#about">about me</a>
-            </li>
-            <li class="hover:text-gray-500">
-              <a href="#services">services</a>
-            </li>
-            <li class="hover:text-gray-500">
-              <a href="#works">works</a>
-            </li>
-            <li class="hover:text-gray-500">
-              <a href="#contact">contact</a>
-            </li>
-          </ul>
-          <img
-            id="moon"
-            src="./img/moon.png"
-            class="hidden md:block w-5 cursor-pointer"
-            alt=""
-          />
-          <div id="hamburger" class="space-y-1 md:hidden cursor-pointer z-20">
-            <div class="w-6 h-0.5 bg-black"></div>
-            <div class="w-6 h-0.5 bg-black"></div>
-            <div class="w-6 h-0.5 bg-black"></div>
-          </div>
-          <ul
-            id="menu"
-            class="hidden bg-indigo-900 absolute left-0 top-0 w-full p-10 rounded-b-3xl space-y-10 text-white text-center"
-          >
-            <li>
-              <a id="hLink" href="#">homepage</a>
-            </li>
-            <li>
-              <a id="hLink" href="#about">about me</a>
-            </li>
-            <li>
-              <a id="hLink" href="#services">services</a>
-            </li>
-            <li>
-              <a id="hLink" href="#works">works</a>
-            </li>
-            <li>
-              <a id="hLink" href="#contact">contact</a>
-            </li>
-          </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="Saurav Niroula - Freelance Web Developer & Youtuber from Nepal. Crafting modern, responsive, and beautiful web experiences." />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          screens: { xs: '475px' }
+        }
+      }
+    }
+  </script>
+
+  <title>Saurav Niroula — Freelance Developer & Youtuber</title>
+  <style>
+    /* ═══ Scroll Reveal ═══ */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-48px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(48px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+    .delay-500 { transition-delay: 0.5s; }
+
+    /* ═══ Float Animation ═══ */
+    @keyframes float { 0%,100%{transform:translateY(0)rotate(0deg)}33%{transform:translateY(-12px)rotate(1deg)}66%{transform:translateY(-6px)rotate(-1deg)} }
+    .float-anim { animation: float 7s ease-in-out infinite; }
+    @keyframes badge-float { 0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)} }
+    .badge-float { animation: badge-float 4s ease-in-out infinite; }
+    .badge-float-delayed { animation: badge-float 4s ease-in-out infinite 2s; }
+
+    /* ═══ Animated Gradient Text ═══ */
+    @keyframes gradient-shift { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+    .animated-gradient {
+      background: linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7,#6366f1);
+      background-size:300% 300%;
+      animation:gradient-shift 4s ease infinite;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    /* ═══ Shimmer Sweep ═══ */
+    .shimmer { position:relative; overflow:hidden; }
+    .shimmer::after {
+      content:'';
+      position:absolute;
+      top:0; left:-100%;
+      width:60%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+      transform:skewX(-15deg);
+      transition:left 0.8s ease;
+    }
+    .shimmer:hover::after { left:140%; }
+
+    /* ═══ Typing Cursor ═══ */
+    #text::after { content:'|'; animation:blink 0.8s infinite; color:#ef4444; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
+
+    /* ═══ Animated Skill Bars ═══ */
+    @keyframes grow-bar { from{width:0%} }
+    .skill-bar   { animation:grow-bar 1.5s cubic-bezier(0.4,0,0.2,1)      both; }
+    .skill-bar-2 { animation:grow-bar 1.5s cubic-bezier(0.4,0,0.2,1) 0.2s both; }
+    .skill-bar-3 { animation:grow-bar 1.5s cubic-bezier(0.4,0,0.2,1) 0.4s both; }
+
+    /* ═══ Border Glow ═══ */
+    .border-glow { position:relative; }
+    .border-glow::before {
+      content:'';
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      background:linear-gradient(135deg,rgba(99,102,241,0.35),rgba(168,85,247,0.2),transparent);
+      z-index:-1;
+      opacity:0;
+      transition:opacity 0.4s ease;
+    }
+    .border-glow:hover::before { opacity:1; }
+
+    /* ═══ Premium Contact Inputs ═══ */
+    .premium-input {
+      transition:all 0.3s ease;
+      border:1.5px solid rgba(99,102,241,0.2);
+      border-radius:16px;
+      padding:14px 18px;
+      width:100%;
+      background:rgba(255,255,255,0.7);
+      backdrop-filter:blur(12px);
+      font-family:'Nunito',sans-serif;
+      font-size:14px;
+      font-weight:600;
+      color:#1e293b;
+      outline:none;
+    }
+    .premium-input::placeholder { color:#94a3b8; }
+    .premium-input:focus {
+      border-color:#6366f1;
+      box-shadow:0 0 0 4px rgba(99,102,241,0.12),0 0 20px rgba(99,102,241,0.1);
+      background:rgba(255,255,255,0.9);
+    }
+    .dark .premium-input {
+      background:rgba(30,41,59,0.6);
+      border-color:rgba(99,102,241,0.25);
+      color:#f1f5f9;
+      backdrop-filter:blur(12px);
+    }
+    .dark .premium-input::placeholder { color:#64748b; }
+    .dark .premium-input:focus {
+      border-color:#818cf8;
+      box-shadow:0 0 0 4px rgba(99,102,241,0.15);
+      background:rgba(30,41,59,0.8);
+    }
+
+    /* ═══ Morphing border ═══ */
+    @keyframes morph {
+      0%,100%{border-radius:24px}
+      25%{border-radius:32px 18px 28px 20px}
+      50%{border-radius:20px 30px 20px 32px}
+      75%{border-radius:28px 22px 30px 18px}
+    }
+    .morph-border { animation:morph 10s ease-in-out infinite; }
+
+    /* ═══ Onboarding Animations ═══ */
+    @keyframes float-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .animate-float-bounce { animation: float-bounce 3.5s ease-in-out infinite; }
+
+    @keyframes pulse-bubble {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.03); }
+    }
+    .animate-pulse-bubble { animation: pulse-bubble 2s ease-in-out infinite; }
+
+    @keyframes click-pulse {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      50% { transform: scale(0.85) translateY(-8px); opacity: 0.6; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .animate-click-pulse { animation: click-pulse 1.2s ease-in-out infinite; }
+
+    @keyframes dash {
+      to { stroke-dashoffset: -20; }
+    }
+    .animate-dash { animation: dash 0.8s linear infinite; }
+
+    @keyframes nav-glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); transform: scale(1); }
+      50% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.8); transform: scale(1.05); }
+    }
+    .animate-nav-glow { animation: nav-glow 2s ease-in-out infinite; }
+
+    html, body { overflow-x: hidden; max-width: 100%; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<!-- Same as Youtuber page: single gradient body + fixed blobs -->
+<body class="font-nunito bg-gradient-to-br from-slate-50 via-indigo-50/40 to-white dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col relative overflow-x-hidden transition-colors duration-300">
+
+  <!-- ═══ Background blobs (same as Youtuber page) ═══ -->
+  <div class="fixed top-1/4 right-1/4 w-96 h-96 bg-indigo-200/20 dark:bg-indigo-500/10 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse" style="animation-duration:8s;"></div>
+  <div class="fixed bottom-1/4 left-1/4 w-72 h-72 bg-purple-200/15 dark:bg-purple-500/10 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse" style="animation-duration:10s;"></div>
+  <div class="fixed top-1/2 right-10 w-48 h-48 bg-violet-200/10 dark:bg-violet-500/8 rounded-full filter blur-2xl pointer-events-none -z-10 animate-pulse" style="animation-duration:6s;"></div>
+
+  <!-- ═══ NAVBAR (same as Youtuber page) ═══ -->
+  <nav class="w-full fixed top-0 z-50 transition-all duration-300" id="navbar">
+    <div class="absolute inset-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50"></div>
+    
+
+    <div class="relative container mx-auto py-1.5 sm:py-3 px-2 sm:px-4 md:px-10 flex items-center justify-between z-50 gap-1.5">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-1 sm:gap-2 group flex-shrink-0 min-w-0">
+        <div class="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 flex-shrink-0">
+          <span class="text-white font-black text-[9px] sm:text-sm">SN</span>
         </div>
-      </nav>
-      <!-- intro content -->
-      <!-- image -->
-      <img
-        class="absolute bottom-0 right-0 lg:left-0 mx-auto h-5/6 object-cover"
-        src="./img/man.png"
-        alt=""
-      />
-      <!-- circle -->
-      <div
-        class="hidden lg:block absolute -bottom-1/4 right-0 left-0 mx-auto w-big h-big bg-indigo-900 rounded-full -z-10"
-      ></div>
-      <!-- animated text -->
-      <div
-        class="absolute top-1/3 left-5 text-xl sm:left-10 sm:text-4xl md:left-1/4 md:text-6xl lg:left-5 xl:left-48 xl:text-7xl font-bold"
-      >
-        <span class="text-gray-600">Frelance</span>
-        <p id="text" class="text-red-500"></p>
-      </div>
-      <!-- texts -->
-      <div
-        class="hidden lg:flex flex-col gap-5 rounded-md shadow-lg absolute top-0 bottom-0 m-auto right-10 bg-white dark:bg-slate-900 dark:shadow-slate-800 p-6 h-fit w-1/3"
-      >
-        <h1 class="text-4xl font-bold text-indigo-900">Hi, I'm Saurav Niroula</h1>
-        <p class="text-gray-400">
-        I am a passionate Web Developer from Nepal. I enjoy building modern,
-        responsive, and user-friendly websites using HTML, CSS, JavaScript, and
-        Tailwind CSS. I am always learning new skills and improving my knowledge to
-        create better web experiences.
-</p>
-        <a
-          class="bg-indigo-600 text-white text-xl px-3 py-2 rounded-md font-semibold w-fit"
-          href="#contact"
-          >Hire Me</a
-        >
-      </div>
+        <span class="text-xs sm:text-base font-black text-slate-900 dark:text-white tracking-tight truncate">Saurav <span class="text-indigo-600 dark:text-indigo-400">Niroula.</span></span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="flex items-center gap-1.5 sm:gap-2 text-sm font-black flex-shrink-0" style="overflow: visible;">
+        <li>
+          <a href="#" class="inline-flex items-center justify-center px-2.5 sm:px-4 sm:w-28 md:w-32 h-7 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-black text-[10px] sm:text-sm shadow-md shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5 transition-all active:scale-95 touch-manipulation">
+            Home
+          </a>
+        </li>
+        <li class="relative" style="overflow: visible;">
+          <a href="interest.html" id="youtuber-nav-btn" class="inline-flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-3 sm:w-28 md:w-32 h-7 sm:h-10 rounded-lg sm:rounded-xl bg-[#ef4444] hover:bg-[#dc2626] text-white font-black text-[10px] sm:text-sm shadow-md shadow-red-500/30 hover:shadow-red-500/50 hover:-translate-y-0.5 transition-all active:scale-95 touch-manipulation animate-nav-glow">
+            <i class="fa-brands fa-youtube text-xs sm:text-base"></i>
+            <span class="hidden xs:inline sm:inline">Youtuber</span>
+            <span class="inline xs:hidden">YT</span>
+          </a>
+          <!-- Stickman Onboarding attached to button -->
+          <div id="mobile-onboarding" class="absolute top-full mt-4 -right-6 flex items-center animate-float-bounce opacity-0 transition-opacity duration-500 pointer-events-none hidden z-50" style="overflow: visible;">
+            <!-- Stickman -->
+            <style>
+              .stickman-img { width: 120px !important; max-width: none !important; height: auto !important; }
+              @media (min-width: 640px) { .stickman-img { width: 150px !important; } }
+            </style>
+            <img src="./img/stickman.png" class="stickman-img filter drop-shadow-md" alt="Guide" />
+          </div>
+        </li>
+      </ul>
+
     </div>
+  </nav>
 
-    <!-- about -->
-    <div id="about" class="px-10 dark:bg-slate-900">
-      <div
-        class="container mx-auto py-40 flex flex-col-reverse lg:flex-row items-center gap-20"
-      >
-        <!-- left -->
-        <div class="relative">
-          <img
-            class="h-1/4 absolute top-0 left-0 -z-10"
-            src="./img/dots.png"
-            alt=""
-          />
-          <div class="h-full rounded-full overflow-hidden">
-            <img src="./img/portrait.png" alt="" />
-          </div>
-        </div>
-        <!-- right -->
-        <div class="my-auto flex flex-col gap-3">
-          <h1 class="text-indigo-600 font-bold">ABOUT ME</h1>
-          <h1 class="text-3xl font-medium dark:text-white">Better Design</h1>
-          <h1 class="text-3xl font-medium dark:text-white">
-            Better Experience
-          </h1>
-          <p class="text-gray-400">
-           
-           I design and build modern websites that are simple, fast, and user-friendly. I enjoy turning ideas into clean digital experiences.
-           
-           
-          </p>
-          <h2 class="text-gray-400 font-medium">HTML</h2>
-          <div class="w-full bg-gray-200 h-1.5 rounded-md">
-            <div class="w-full bg-indigo-600 h-1.5 rounded-md"></div>
-          </div>
-          <h2 class="text-gray-400 font-medium">Javascript</h2>
-          <div class="w-full bg-gray-200 h-1.5 rounded-md">
-            <div class="w-4/6 bg-indigo-600 h-1.5 rounded-md"></div>
-          </div>
-          <h2 class="text-gray-400 font-medium">React</h2>
-          <div class="w-full bg-gray-200 h-1.5 rounded-md">
-            <div class="w-5/6 bg-indigo-600 h-1.5 rounded-md"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- services -->
-    <div id="services" class="dark:bg-slate-900">
-      <div class="container mx-auto">
-        <!-- top -->
-        <div class="flex flex-col gap-3 items-center">
-          <h1 class="text-indigo-600 font-bold">SERVICES</h1>
-          <h1 class="text-3xl dark:text-white">What do I offer?</h1>
-          <p class="w-1/2 text-center text-gray-400">
-            My approach to website design is to create a website that
-            strengthens your company’s brand while ensuring ease of use and
-            simplicity for your audience.
-          </p>
-        </div>
-        <!-- bottom -->
-        <div class="p-5 sm:p-0 flex flex-wrap justify-between">
-          
-              <!-- Card Sections -->
+  <!-- ═══ HERO ═══ -->
+  <section class="container mx-auto px-6 md:px-10 pt-28 pb-8 lg:pb-20 flex flex-wrap lg:flex-nowrap lg:flex-row items-center justify-between gap-8 lg:gap-20 z-10 relative">
 
-          <!-- Card 1 -->
-          <div
-            class="w-full md:w-4/12 shadow-xl rounded-lg p-5 my-3 md:my-10 flex flex-col gap-3"
-          >
-            <img class="w-10" src="./img/icon.png" alt="" />
-            <h1 class="font-medium text-lg dark:text-white">Frontend Development</h1>
-            <p class="text-gray-400">
-              I create responsive and modern websites using HTML, CSS, JavaScript, and Tailwind CSS, focusing on clean design, performance, and user experience.
-            </p>
-            <a class="text-indigo-600 font-semibold text-sm" href="#works"
-              >View Projects →</a
-            >
-          </div>
+    <!-- TOP TEXT: Available + Name + Typing (always first on mobile) -->
+    <div class="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left gap-5 relative order-1 lg:order-1">
 
-          <!-- Card 2 -->
-          <div
-            class="w-full md:w-4/12 shadow-xl rounded-lg p-5 my-3 md:my-10 flex flex-col gap-3"
-          >
-            <img class="w-10" src="./img/icon.png" alt="" />
-            <h1 class="font-medium text-lg dark:text-white">Backend Development</h1>
-            <p class="text-gray-400">
-              I develop secure and scalable web applications using Java, JSP, Servlets, JDBC, and MySQL, ensuring reliable backend functionality.
-            </p>
-            <a class="text-indigo-600 font-semibold text-sm" href="#works"
-              >View Projects →</a
-            >
-          </div>
-         
-          <!-- Card 3 -->
-          <div
-            class="w-full md:w-4/12 shadow-xl rounded-lg p-5 my-3 md:my-10 flex flex-col gap-3"
-          >
-            <img class="w-10" src="./img/icon.png" alt="" />
-            <h1 class="font-medium text-lg dark:text-white">Projects & Learning</h1>
-            <p class="text-gray-400">
-              I showcase academic and personal projects that reflect my technical skills, problem-solving abilities, and continuous learning in web development.
-            </p>
-            <a class="text-indigo-600 font-semibold text-sm" href="#works"
-              >View Projects →</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- works sections -->
-    <div id="works" class="py-40 dark:bg-slate-900">
-      <div class="container mx-auto">
-        <!-- top -->
-        <div class="flex flex-col gap-3 items-center">
-          <h1 class="text-indigo-600 font-bold">PORTFOLIO</h1>
-          <h1 class="text-3xl dark:text-white">Works & Projects</h1>
-          <p class="w-1/2 text-center text-gray-400">
-            I help designers, startups, and small businesses turn ideas into modern, responsive websites. Using Figma, VS Code, and a bit of creativity, I build clean digital experiences that work.
-          </p>
-        </div>
-
-        <!-- bottom sections -->
-        <div class="p-5 sm:p-0 flex flex-wrap justify-between">
-          <!-- card -->
-          <div
-            class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg my-3 md:my-10 m-1 transition-all hover:scale-110"
-          >
-            <img src="./img/item.png" />
-          </div>
-         
-          <!-- card sections  -->
-          <div
-            class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg my-3 md:my-10 m-1 transition-all hover:scale-110"
-          >
-            <img src="./img/item.png" />
-          </div>
-          <!-- card -->
-          <div
-            class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg my-3 md:my-10 m-1 transition-all hover:scale-110"
-          >
-            <img src="./img/item.png" />
-          </div>
-          <!-- card -->
-          <div
-            class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg my-3 md:my-10 m-1 transition-all hover:scale-110"
-          >
-            <img src="./img/item.png" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- contact sections-->
-    <div id="contact" class="dark:bg-slate-900">
-      <div class="container mx-auto">
-        <!-- top -->
-        <div class="flex flex-col gap-3 items-center">
-          <h1 class="text-indigo-600 font-bold">CONTACT</h1>
-          <h1 class="text-3xl dark:text-white">Have a Question?</h1>
-          <p class="w-1/2 text-center text-gray-400">
-            Do you have an idea? Let's discuss it and see what we can do
-            together.
-          </p>
-        </div>
-
-        <!-- bottom sections -->
-        <form class="mt-5 p-8 flex flex-col gap-5 items-center">
-          <input
-            class="p-2 w-full md:w-1/2 ring-1 ring-indigo-300 rounded-sm dark:bg-slate-800 dark:ring-0 dark:text-white"
-            type="text"
-            placeholder="Name"
-          />
-          <input
-            class="p-2 w-full md:w-1/2 ring-1 ring-indigo-300 rounded-sm dark:bg-slate-800 dark:ring-0 dark:text-white"
-            type="email"
-            placeholder="Email"
-          />
-          <textarea
-            class="p-2 w-full md:w-1/2 ring-1 ring-indigo-300 rounded-sm dark:bg-slate-800 dark:ring-0 dark:text-white"
-            cols="30"
-            rows="10"
-            placeholder="Message..."
-          ></textarea>
-          <button
-            class="w-1/2 bg-indigo-600 text-white font-medium px-3 py-2 rounded-md cursor-pointer"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <!-- footer -->
-    <div class="w-full bg-gray-800">
-      <div class="container mx-auto py-5 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl font-bold text-white">Saurav Niroula.</span>
-        </div>
-        <span class="hidden md:block font-medium text-white">
-          © 2026 Saurav Niroula. All Rights Reserved.
+      <div class="reveal inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 border border-indigo-100 dark:border-indigo-900/40 shadow-lg shadow-indigo-500/8 backdrop-blur-sm">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
         </span>
-        <div class="flex gap-2">
-          <img class="w-4 cursor-pointer" src="./img/facebook.png" alt="" />
-          <img class="w-4 cursor-pointer" src="./img/instagram.png" alt="" />
-          <img class="w-4 cursor-pointer" src="./img/twitter.png" alt="" />
-          <img class="w-4 cursor-pointer" src="./img/linkedin.png" alt="" />
+        <span class="text-xs font-black text-slate-600 dark:text-slate-300 tracking-widest uppercase">Available for Work</span>
+      </div>
+
+      <div class="reveal delay-100">
+        <p class="text-sm font-black uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400 mb-3">👋 Hello, I'm</p>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white leading-[1.05] tracking-tight">
+          Saurav<br />
+          <span class="animated-gradient">Niroula</span>
+        </h1>
+        <div class="mt-4 flex items-baseline gap-2 justify-center lg:justify-start flex-wrap">
+          <span class="text-2xl sm:text-3xl font-bold text-slate-400 dark:text-slate-500">Freelance</span>
+          <span id="text" class="text-2xl sm:text-3xl font-black text-indigo-500 min-w-[4px]"></span>
+        </div>
+      </div>
+
+      <!-- Desktop only: description + buttons + socials -->
+      <p class="hidden lg:block reveal delay-200 text-slate-500 dark:text-slate-400 text-base sm:text-lg max-w-lg font-medium leading-relaxed text-left">
+        A passionate Web Developer from Nepal crafting <strong class="text-indigo-600 dark:text-indigo-400 font-bold">modern</strong>, responsive, and beautiful digital experiences.
+      </p>
+
+      <div class="hidden lg:flex reveal delay-300 flex-wrap items-center justify-start gap-3">
+        <a href="#contact" class="group inline-flex items-center gap-2 px-8 py-4 h-11 font-black bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl shadow-xl shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-1.5 transition-all duration-300 touch-manipulation shimmer">
+          <i class="fa-solid fa-paper-plane group-hover:rotate-12 transition-transform"></i> Hire Me
+        </a>
+        <a href="#about" class="group inline-flex items-center gap-2 px-8 py-4 h-11 font-black bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 text-slate-800 dark:text-white rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700/80 hover:-translate-y-1.5 transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-solid fa-briefcase text-indigo-500 group-hover:rotate-6 transition-transform"></i> View Work
+        </a>
+      </div>
+
+      <div class="hidden lg:flex reveal delay-400 items-center gap-3">
+        <a href="https://discord.gg/4exbvccwkK" target="_blank" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-[#5865F2] shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#5865F2]/20 hover:bg-[#5865F2] hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-discord text-lg"></i>
+        </a>
+        <a href="#" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-pink-500 shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-pink-500/20 hover:bg-pink-500 hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-instagram text-lg"></i>
+        </a>
+        <a href="#" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-red-500 shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-red-500/20 hover:bg-red-500 hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-youtube text-lg"></i>
+        </a>
+        <a href="#" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-blue-600 shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20 hover:bg-blue-600 hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-linkedin text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHOTO (shows second on mobile, right column on desktop) -->
+    <div id="hero-photo" class="reveal-right w-full lg:w-[42%] flex justify-center relative order-2 lg:order-2">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-indigo-300/20 dark:bg-indigo-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 float-anim">
+        <div class="relative w-64 h-80 sm:w-80 sm:h-[420px] lg:w-[340px] lg:h-[450px] morph-border overflow-hidden shadow-2xl shadow-indigo-500/15 border-4 border-white/80 dark:border-slate-800/80 transition-shadow duration-700">
+          <img src="./img/man.png" alt="Saurav Niroula" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
+        </div>
+
+        <!-- Floating badge bottom-left -->
+        <div class="absolute -bottom-5 -left-3 sm:-left-8 badge-float-delayed">
+          <div class="bg-gradient-to-br from-indigo-600 to-purple-700 px-4 py-3 rounded-2xl shadow-2xl shadow-indigo-500/40 flex items-center gap-2.5">
+            <i class="fa-solid fa-star text-yellow-300 text-sm animate-spin" style="animation-duration:3s"></i>
+            <div>
+              <p class="text-[9px] text-indigo-200 font-black uppercase tracking-widest">Freelancer &amp; Youtuber</p>
+              <p class="text-xs font-black text-white">Nepal 🇳🇵</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <script src="./app.js"></script>
-    <script src="./autotyping.js"></script>
-  </body>
+    <!-- BOTTOM TEXT: Description + Buttons + Socials (shows after photo on mobile, hidden on desktop) -->
+    <div class="w-full flex flex-col items-center text-center gap-6 relative order-3 mt-4 lg:hidden">
+
+      <p class="reveal delay-200 text-slate-500 dark:text-slate-400 text-base sm:text-lg max-w-lg font-medium leading-relaxed">
+        A passionate Web Developer from Nepal crafting <strong class="text-indigo-600 dark:text-indigo-400 font-bold">modern</strong>, responsive, and beautiful digital experiences.
+      </p>
+
+      <div class="reveal delay-300 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+        <a href="#contact" class="group inline-flex items-center gap-2 px-8 py-4 h-11 font-black bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl shadow-xl shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-1.5 transition-all duration-300 touch-manipulation shimmer">
+          <i class="fa-solid fa-paper-plane group-hover:rotate-12 transition-transform"></i> Hire Me
+        </a>
+        <a href="#about" class="group inline-flex items-center gap-2 px-8 py-4 h-11 font-black bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 text-slate-800 dark:text-white rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700/80 hover:-translate-y-1.5 transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-solid fa-briefcase text-indigo-500 group-hover:rotate-6 transition-transform"></i> View Work
+        </a>
+      </div>
+
+      <div class="reveal delay-400 flex items-center gap-3">
+        <a href="https://discord.gg/4exbvccwkK" target="_blank" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-[#5865F2] shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#5865F2]/20 hover:bg-[#5865F2] hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-discord text-lg"></i>
+        </a>
+        <a href="#" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-pink-500 shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-pink-500/20 hover:bg-pink-500 hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-instagram text-lg"></i>
+        </a>
+        <a href="#" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-red-500 shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-red-500/20 hover:bg-red-500 hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-youtube text-lg"></i>
+        </a>
+        <a href="#" class="group w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-2xl flex items-center justify-center text-blue-600 shadow-md border border-slate-100 dark:border-slate-700/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20 hover:bg-blue-600 hover:text-white transition-all duration-300 touch-manipulation backdrop-blur-sm">
+          <i class="fa-brands fa-linkedin text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section id="education" class="py-8 lg:py-20 z-10 relative">
+    <div class="container mx-auto px-6 md:px-10">
+      <div class="flex flex-col gap-3 items-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-widest border border-indigo-100 dark:border-indigo-900/50">
+          <i class="fa-solid fa-graduation-cap"></i> Education
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white text-center">Where I <span class="animated-gradient">Learn</span></h2>
+        <p class="w-full px-5 sm:px-0 md:w-1/2 text-center text-slate-400 dark:text-slate-400 font-medium">My academic journey shaping my technical and professional skills.</p>
+      </div>
+
+      <div class="flex justify-center reveal delay-200">
+        <a href="https://iic.edu.np/" target="_blank"
+          class="group relative w-full lg:w-3/4 max-w-4xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-[2.5rem] p-2 sm:p-4 flex flex-col sm:flex-row items-center gap-6 shadow-xl shadow-slate-200/20 dark:shadow-none hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100 dark:border-slate-800/80 touch-manipulation">
+
+
+          <div class="relative z-10 w-full sm:w-1/3 flex justify-center items-center py-8 sm:py-10 bg-white/80 dark:bg-slate-800/50 rounded-[2rem] border border-slate-50 dark:border-slate-700/50 backdrop-blur-sm">
+            <img src="./img/iic.png" alt="IIC Logo" class="w-28 h-28 sm:w-32 sm:h-32 object-contain group-hover:scale-110 transition-transform duration-500" />
+          </div>
+
+          <div class="relative z-10 flex flex-col text-center sm:text-left px-4 sm:px-6 py-4 sm:py-0 sm:pr-8 w-full sm:w-2/3">
+            <div class="flex items-center gap-3 justify-center sm:justify-start mb-3">
+              <span class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Current</span>
+              <span class="text-indigo-500 text-sm font-black tracking-wide">@IICNepal</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Itahari International College</h3>
+            <p class="text-slate-500 dark:text-slate-400 mt-3 font-semibold text-sm leading-relaxed max-w-lg mx-auto sm:mx-0">
+              <span id="edu-typewriter"></span><span id="edu-cursor" style="display:inline-block;width:2px;height:0.85em;background:#ef4444;margin-left:1px;vertical-align:middle;border-radius:1px;animation:edu-blink 0.7s infinite;">​</span>
+            </p>
+            <style>@keyframes edu-blink{0%,100%{opacity:1}50%{opacity:0}}</style>
+            <script>
+              (function(){
+                var txt = "Pursuing a Bachelor\u2019s degree in Computing and Information Technology at London Metropolitan University, UK. Building a strong foundation in modern software development, programming, and industry-relevant technologies.";
+                var idx = 0, started = false;
+                function type(){
+                  var el = document.getElementById('edu-typewriter');
+                  var cur = document.getElementById('edu-cursor');
+                  if(!el) return;
+                  if(idx < txt.length){ el.textContent += txt.charAt(idx++); setTimeout(type, 40); }
+                  else { setTimeout(function(){ if(cur) cur.style.display='none'; }, 1000); }
+                }
+                function init(){
+                  var target = document.getElementById('edu-typewriter');
+                  if(!target || started) return;
+                  var obs = new IntersectionObserver(function(entries){
+                    if(entries[0].isIntersecting && !started){ started=true; obs.disconnect(); setTimeout(type,300); }
+                  },{threshold:0.5});
+                  obs.observe(target.closest('p') || target);
+                }
+                if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
+              })();
+            </script>
+            <div class="mt-5 flex items-center justify-center sm:justify-start gap-2 text-indigo-600 dark:text-indigo-400 font-black text-sm group-hover:gap-4 transition-all bg-indigo-50 dark:bg-indigo-900/30 w-fit mx-auto sm:mx-0 px-5 py-2.5 rounded-xl shimmer">
+              Visit College Website <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="py-8 lg:py-20 z-10 relative">
+    <div class="container mx-auto px-6 md:px-10">
+      <div class="flex flex-col gap-3 items-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-widest border border-indigo-100 dark:border-indigo-900/50">
+          <i class="fa-solid fa-user"></i> About Me
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white text-center">Better Design, <span class="animated-gradient">Better Experience</span></h2>
+        <p class="w-full px-5 sm:px-0 md:w-1/2 text-center text-slate-400 dark:text-slate-400 font-medium">I design and build modern websites that are simple, fast, and user-friendly.</p>
+      </div>
+
+      <div class="flex justify-center reveal delay-200">
+        <div class="group border-glow relative w-full lg:w-3/4 max-w-4xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-[2.5rem] p-2 sm:p-4 flex flex-col md:flex-row items-center gap-6 shadow-xl shadow-slate-200/20 dark:shadow-none hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 hover:-translate-y-2 border border-slate-100 dark:border-slate-800/80">
+          <div class="absolute inset-0 bg-gradient-to-r from-indigo-50/80 via-white/60 to-transparent dark:from-indigo-900/10 dark:via-transparent rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+
+          <div class="relative z-10 w-full md:w-1/3 flex justify-center items-center py-6 sm:py-8 bg-white/80 dark:bg-slate-800/50 rounded-[2rem] border border-slate-50 dark:border-slate-700/50 backdrop-blur-sm">
+            <div class="w-44 h-44 sm:w-52 sm:h-52 morph-border overflow-hidden shadow-xl group-hover:shadow-indigo-500/20 transition-all duration-500 group-hover:scale-105">
+              <img src="./img/portrait.png" alt="Saurav Niroula" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <div class="relative z-10 flex flex-col text-center md:text-left px-4 sm:px-6 w-full md:w-2/3 py-4">
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Turning ideas into clean digital experiences.</h3>
+            <p class="text-slate-500 dark:text-slate-400 font-medium text-sm leading-relaxed mb-7">
+              I specialize in frontend development with a passion for creating responsive and modern UI/UX. Always learning new skills to build better web applications.
+            </p>
+            <div class="flex flex-col gap-5 w-full max-w-md mx-auto md:mx-0">
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-[11px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wider"><span>HTML / CSS</span><span class="text-indigo-500">95%</span></div>
+                <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full skill-bar" style="width:95%"></div></div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-[11px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wider"><span>JavaScript</span><span class="text-indigo-500">85%</span></div>
+                <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full skill-bar-2" style="width:85%"></div></div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-[11px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wider"><span>React / Tailwind</span><span class="text-indigo-500">90%</span></div>
+                <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full skill-bar-3" style="width:90%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="services" class="py-8 lg:py-20 z-10 relative">
+    <div class="container mx-auto px-6 md:px-10">
+      <div class="flex flex-col gap-3 items-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-black uppercase tracking-widest border border-purple-100 dark:border-purple-900/50">
+          <i class="fa-solid fa-code"></i> Services
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white text-center">What do I <span class="animated-gradient">Offer?</span></h2>
+        <p class="w-full px-5 sm:px-0 md:w-1/2 text-center text-slate-400 dark:text-slate-400 font-medium">Building digital solutions that strengthen your brand with clean design and seamless user experience.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="group reveal border-glow bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-3xl p-7 shadow-xl shadow-slate-200/20 dark:shadow-none hover:shadow-2xl hover:shadow-indigo-500/10 border border-slate-100 dark:border-slate-800/80 flex flex-col gap-4 hover:-translate-y-2 transition-all duration-400">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <i class="fa-solid fa-code text-xl"></i>
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Frontend Development</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed flex-grow">Responsive and modern websites using HTML, CSS, JavaScript, and Tailwind CSS focused on clean design, performance, and user experience.</p>
+          <a href="#works" class="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-black text-sm group-hover:gap-3 transition-all">View Projects <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+
+        <div class="group reveal delay-200 border-glow bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-3xl p-7 shadow-xl shadow-slate-200/20 dark:shadow-none hover:shadow-2xl hover:shadow-purple-500/10 border border-slate-100 dark:border-slate-800/80 flex flex-col gap-4 hover:-translate-y-2 transition-all duration-400">
+          <div class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <i class="fa-solid fa-server text-xl"></i>
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Backend Development</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed flex-grow">Secure and scalable web applications using Java, JSP, Servlets, JDBC, and MySQL — ensuring reliable backend functionality.</p>
+          <a href="#works" class="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 font-black text-sm group-hover:gap-3 transition-all">View Projects <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+
+        <div class="group reveal delay-400 border-glow bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-3xl p-7 shadow-xl shadow-slate-200/20 dark:shadow-none hover:shadow-2xl hover:shadow-violet-500/10 border border-slate-100 dark:border-slate-800/80 flex flex-col gap-4 hover:-translate-y-2 transition-all duration-400">
+          <div class="w-14 h-14 rounded-2xl bg-violet-50 dark:bg-violet-900/40 flex items-center justify-center text-violet-600 dark:text-violet-400 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+            <i class="fa-solid fa-lightbulb text-xl"></i>
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">Projects & Learning</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed flex-grow">Academic and personal projects reflecting technical skills, problem-solving, and continuous learning in modern web development.</p>
+          <a href="#works" class="inline-flex items-center gap-2 text-violet-600 dark:text-violet-400 font-black text-sm group-hover:gap-3 transition-all">View Projects <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WORKS ═══ -->
+  <section id="works" class="py-8 lg:py-20 z-10 relative">
+    <div class="container mx-auto px-6 md:px-10">
+      <div class="flex flex-col gap-3 items-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-widest border border-indigo-100 dark:border-indigo-900/50">
+          <i class="fa-solid fa-briefcase"></i> Portfolio
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white text-center">Works & <span class="animated-gradient">Projects</span></h2>
+        <p class="w-full px-5 sm:px-0 md:w-1/2 text-center text-slate-400 dark:text-slate-400 font-medium">Turning ideas into modern, responsive websites with Figma, VS Code, and creativity.</p>
+      </div>
+
+      <a href="interest.html" class="block group reveal border-glow bg-gradient-to-r from-indigo-50/80 to-purple-50/80 dark:from-slate-900/80 dark:to-slate-800/80 backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-slate-200/20 dark:shadow-none hover:shadow-2xl hover:shadow-indigo-500/15 border border-slate-100 dark:border-slate-800/80 transition-all duration-500 hover:-translate-y-2 cursor-pointer touch-manipulation max-w-5xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 sm:mb-6 gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 text-red-500 flex items-center justify-center shadow-md">
+              <i class="fa-brands fa-youtube text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-black text-slate-900 dark:text-white">Youtuber Projects</h3>
+              <p class="text-slate-500 dark:text-slate-400 text-sm font-semibold mt-0.5">Explore my YouTube content and setups.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-bold text-sm bg-indigo-100/50 dark:bg-indigo-900/30 px-4 py-2 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+            View Page <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        
+        <div class="flex flex-wrap sm:flex-nowrap gap-4 mt-6">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 overflow-hidden rounded-2xl shadow-md border border-white/60 dark:border-slate-700/50 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="YouTube Studio" />
+          </div>
+          <div class="w-24 h-24 sm:w-28 sm:h-28 overflow-hidden rounded-2xl shadow-md border border-white/60 dark:border-slate-700/50 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Microphone" />
+          </div>
+          <div class="w-24 h-24 sm:w-28 sm:h-28 overflow-hidden rounded-2xl shadow-md border border-white/60 dark:border-slate-700/50 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Keyboard Setup" />
+          </div>
+          <div class="w-24 h-24 sm:w-28 sm:h-28 overflow-hidden rounded-2xl shadow-md border border-white/60 dark:border-slate-700/50 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Video Editing" />
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="py-8 lg:py-20 z-10 relative">
+    <div class="container mx-auto px-6 md:px-10">
+      <div class="flex flex-col gap-3 items-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-widest border border-indigo-100 dark:border-indigo-900/50">
+          <i class="fa-solid fa-envelope"></i> Contact
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white text-center">Have a <span class="animated-gradient">Question?</span></h2>
+        <p class="w-full px-5 sm:px-0 md:w-1/2 text-center text-slate-400 dark:text-slate-400 font-medium">Do you have an idea? Let's discuss it and see what we can build together.</p>
+      </div>
+
+      <div class="flex justify-center reveal delay-200">
+        <div class="w-full max-w-xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-[2rem] p-8 shadow-xl shadow-slate-200/20 dark:shadow-none border border-slate-100 dark:border-slate-800/80">
+          <form class="flex flex-col gap-4">
+            <input class="premium-input" type="text" placeholder="Your Name" />
+            <input class="premium-input" type="email" placeholder="Your Email" />
+            <textarea class="premium-input resize-none" rows="6" placeholder="Your Message..."></textarea>
+            <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black text-sm uppercase py-4 rounded-2xl transition-all duration-300 shadow-xl shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-1 touch-manipulation shimmer tracking-wider min-h-[52px]">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200/60 dark:border-slate-800/60 mt-auto z-10">
+    <div class="container mx-auto px-4 md:px-10 py-6 flex flex-col items-center gap-5">
+
+      <!-- Brand + Nav Links -->
+      <div class="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-2 group flex-shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+            <span class="text-white font-black text-[10px]">SN</span>
+          </div>
+          <span class="text-sm font-black text-slate-800 dark:text-white tracking-tight">Saurav <span class="text-indigo-600 dark:text-indigo-400">Niroula.</span></span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="flex items-center gap-2 text-xs font-black">
+          <a href="#" class="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5 transition-all active:scale-95">Home</a>
+          <a href="#education" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all flex items-center gap-1">
+            <i class="fa-solid fa-graduation-cap text-indigo-500 text-[10px]"></i> Education
+          </a>
+          <a href="interest.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#ef4444] hover:bg-[#dc2626] text-white shadow-md shadow-red-500/30 hover:shadow-red-500/50 hover:-translate-y-0.5 transition-all active:scale-95">
+            <i class="fa-brands fa-youtube text-[10px]"></i> Youtuber
+          </a>
+        </div>
+      </div>
+
+      <!-- Social Icons - Big White Cards -->
+      <div class="flex items-center gap-3">
+        <a href="https://discord.gg/4exbvccwkK" target="_blank" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-[#5865F2] hover:-translate-y-1 hover:shadow-[#5865F2]/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-discord text-xl"></i>
+        </a>
+        <a href="#" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-pink-500 hover:-translate-y-1 hover:shadow-pink-500/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-instagram text-xl"></i>
+        </a>
+        <a href="#" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-red-500 hover:-translate-y-1 hover:shadow-red-500/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-youtube text-xl"></i>
+        </a>
+        <a href="#" class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg flex items-center justify-center text-blue-600 hover:-translate-y-1 hover:shadow-blue-600/20 transition-all duration-200 touch-manipulation border border-slate-100 dark:border-slate-700">
+          <i class="fa-brands fa-linkedin text-xl"></i>
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-[11px] text-slate-400 font-semibold text-center">
+        © 2026 Saurav Niroula &middot; Designed &amp; Built with <span class="text-red-500">❤️</span> in Nepal 🇳🇵
+      </p>
+
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script src="./autotyping.js"></script>
+  <script>
+    // Scroll Reveal
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Onboarding Overlay Logic (Run every time Home becomes active)
+    window.addEventListener('load', () => {
+      const onboarding = document.getElementById('mobile-onboarding');
+      const navBtn = document.getElementById('youtuber-nav-btn');
+      
+      if (onboarding && navBtn) {
+        onboarding.classList.remove('hidden');
+        
+        // Fade in
+        setTimeout(() => { 
+          onboarding.classList.remove('opacity-0'); 
+        }, 300);
+        
+        const hideOnboarding = () => {
+          onboarding.classList.add('opacity-0');
+          navBtn.classList.remove('animate-nav-glow');
+          setTimeout(() => { 
+            onboarding.classList.add('hidden'); 
+          }, 700);
+        };
+
+        // Hide only when they click the Youtuber button
+        navBtn.addEventListener('click', hideOnboarding);
+      }
+    });
+
+
+
+
+  </script>
+</body>
+
 </html>
